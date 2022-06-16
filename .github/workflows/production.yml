@@ -22,7 +22,6 @@ jobs:
         run: |
           composer install --optimize-autoloader --prefer-dist --no-progress --no-suggest
           composer install --ignore-platform-reqs
-          composer update --ignore-platform-reqs
           composer update
 
       - name: Configure AWS credentials
