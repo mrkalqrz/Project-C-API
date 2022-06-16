@@ -7,7 +7,7 @@ ENV PHP_VERSION ${PHP_VERSION}
 
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-utils && \
+    apt-get install -y apt-utils && \
     apt-get install -y software-properties-common && \
     LC_ALL=C.UTF-8 add-apt-repository -y -u ppa:ondrej/php && \
     apt-get install -y \
