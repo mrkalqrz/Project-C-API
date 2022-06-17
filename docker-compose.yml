@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: 'laravelapp'
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www/html
+
+  db:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DB_CONNECTION: 'mysql'
+      MYSQL_DB_HOST: 'jrb-db.ckukcgnkqf07.ap-southeast-1.rds.amazonaws.com'
+      MYSQL_DB_PORT: 3306
+      MYSQL_DB_DATABASE: 'projectc'
+      MYSQL_DB_USERNAME: 'admin'
+      MYSQL_DB_PASSWORD: "#Han123456"
+    volumes:
+      - ./db:/var/lib/mysql
